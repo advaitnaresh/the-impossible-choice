@@ -105,13 +105,13 @@ def main() -> None:
     line(e, (82, 68), "THE EVIDENCE, WITHOUT THE HYPE", 43, INK, True)
     cards = [
         ("7,578", "eligible plays", "122 games"),
-        ("72.2%", "flagged by DDT", "potential geometry"),
+        ("23.8 / 16.2", "mean DDT Rate (%)", "zone / man; descriptive"),
         ("+0.00032", "held-out log-loss gain", "95% CI crosses zero"),
     ]
     for i, (number, title, note) in enumerate(cards):
         left = 82 + i * 570
         e.rounded_rectangle((left, 160, left + 520, 430), radius=22, fill="#0B1D2D", outline="#35516B", width=2)
-        line(e, (left + 28, 202), number, 64, TEAL if i < 2 else AMBER, True)
+        line(e, (left + 28, 202), number, 49 if i == 1 else 64, TEAL if i < 2 else AMBER, True)
         line(e, (left + 30, 300), title, 29, INK, True)
         line(e, (left + 30, 351), note, 25, MUTED)
     evidence.save(OUT / "evidence_snapshot.png", optimize=True)
