@@ -1,6 +1,6 @@
 # 🏈 The Impossible Choice
 
-**Can two routes make one defender choose?** We follow actual WR, TE, and RB routes before a throw and estimate when two diverging receivers draw the same defender into a choice with limited nearby help. We call the total time in that geometry **Defensive Dilemma Time (DDT)**.
+**Can two routes make one defender choose?** We follow actual WR, TE, and RB routes before a throw and estimate when two diverging receivers draw the same defender into a choice with limited nearby help. We call the total time in that geometry **Defensive Dilemma Time (DDT)**. In our 2021 sample, the mean per-play DDT Rate was **23.8% for zone** versus **16.2% for man**, a descriptive pattern coaches can investigate play by play.
 
 ![Animated real NFL tracking play showing two route runners, one defender, and the DDT timeline](snapshots/play_replay.gif)
 
@@ -21,7 +21,7 @@ The displayed trio qualifies for **1.5 seconds**; other qualifying trios bring t
 
 ## The football insight
 
-In **7,578 eligible plays from 122 games**, zone plays showed a higher mean DDT Rate than man plays (**23.8% vs 16.2%**), a descriptive pattern that coaches can investigate through the replay and its low-DDT and dense zero-DDT controls. A broadcaster can use the same replay to show how the offensive routes develop around the defender before the throw.
+Across **7,578 eligible plays from 122 games**, the tool identifies the receiver pair, defender, and exact frames behind each DDT flag. Coaches can use the [receiver-pair rankings](outputs/receiver_pair_rankings.csv) to choose concepts for film review and compare them with the replay's low-DDT and dense zero-DDT controls; broadcasters can show the route movement before the throw.
 
 ![Evidence snapshot with sample size, zone versus man DDT Rate, and held-out model result](snapshots/evidence_snapshot.png)
 
