@@ -27,7 +27,10 @@ PURPLE = "#A98AFF"
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
     base = "/System/Library/Fonts/Supplemental/Arial"
-    return ImageFont.truetype(base + (" Bold.ttf" if bold else ".ttf"), size)
+    try:
+        return ImageFont.truetype(base + (" Bold.ttf" if bold else ".ttf"), size)
+    except OSError:
+        return ImageFont.truetype("DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf", size)
 
 
 def line(draw: ImageDraw.ImageDraw, xy: tuple[int, int], content: str, size: int, color: str = INK, bold: bool = False) -> None:

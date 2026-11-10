@@ -22,6 +22,7 @@ Run those commands from this project checkout; set `BDB_DATA_DIR` to another abs
 python3 analysis.py --max-games 4 --download-pbp --force
 python3 analysis.py --download-pbp --force
 python3 scripts/render_snapshots.py
+python3 scripts/render_readme_animation.py
 python3 -m pytest -q
 ```
 
@@ -46,4 +47,4 @@ streamlit run app.py
 | `outputs/ddt_conflict_segments.csv` | Continuous flagged windows |
 | `outputs/baseline_comparison.csv` | Held-out B0/B1/B2 comparison |
 | `outputs/coverage_summary.csv` | Descriptive man/zone summary |
-| `snapshots/` | README visuals rendered from the saved results and actual tracking |
+| `snapshots/` | README GIF and stills rendered from the saved results and actual tracking |

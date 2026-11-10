@@ -1,14 +1,41 @@
 # 🏈 The Impossible Choice
 
-![Actual tracking snapshot of a receiver pair pulling one defender in two directions](snapshots/defensive_dilemma.png)
+**Can two routes make one defender choose?** We follow actual WR, TE, and RB routes before a throw and estimate when two diverging receivers draw the same defender into a choice with limited nearby help. We call the total time in that geometry **Defensive Dilemma Time (DDT)**.
 
-**The Impossible Choice** turns a coaching question about two routes pulling one defender in different directions into **Defensive Dilemma Time (DDT)**, a pre-throw geometric metric for WR, TE, and RB routes. Using real 2021 NFL tracking at 10 frames per second, the Python tool flags moments when two diverging route runners are within one coverage defender's modeled reach and nearby geometric help is limited. In **7,578 eligible plays across 122 games**, zone plays show a higher mean DDT Rate than man plays (**23.8% versus 16.2%**); the replay exposes actual frames, a low-DDT control, and a dense counterexample for coaching review. On 25 held-out games, adding DDT to conventional geometry improved completion log loss by just **0.00032**, with a confidence interval that crosses zero, so added predictive value is unproven. Reach time is an explicit approximation and the data do not identify individual coverage assignments, making DDT a prompt for film review rather than proof of a coverage mistake.
+![Animated real NFL tracking play showing two route runners, one defender, and the DDT timeline](snapshots/play_replay.gif)
 
-![Evidence snapshot showing sample size, DDT frequency, and inconclusive held-out result](snapshots/evidence_snapshot.png)
+*Real 2021 tracking, IND vs MIA, Week 4: the teal trails are observed player movement; gold links show the modeled conflict for the displayed trio.*
 
-| Explore | Verify | Reproduce |
-| :--- | :--- | :--- |
-| [Live actual-play replay](https://advaitnaresh.github.io/the-impossible-choice/) · [Replay source](outputs/featured_play_replay.html) · [Conflict timeline](outputs/featured_play_timeline.html) | [Finding](outputs/finding.md) · [Metric definition](METRIC.md) · [Results](outputs/baseline_comparison.csv) | [Setup and run](RUN.md) · [Analysis code](analysis.py) · [Interactive app](app.py) |
+**[▶ Explore the full interactive replay](https://advaitnaresh.github.io/the-impossible-choice/)** &nbsp;·&nbsp; [Read the metric definition](METRIC.md) &nbsp;·&nbsp; [Run the Python project](RUN.md)
+
+## Read the play in 15 seconds
+
+| What you see | What it means |
+| :--- | :--- |
+| **Teal A + B** | Two actual PFF-tagged route runners from the WR, TE, or RB group |
+| **Gold D** | One actual PFF-tagged coverage defender |
+| **Gold links** | The displayed trio meets DDT's modeled shared-reach rule at that frame |
+| **Bottom timeline** | Teal marks any DDT-active frame; gold marks frames for the displayed trio |
+
+The displayed trio qualifies for **1.5 seconds**; other qualifying trios bring this play's **whole-play DDT to 2.9 seconds** before the pass is released. DDT counts those qualifying tenth-second frames after normalizing play direction, projecting each route runner 0.4 seconds, estimating a defender's time to reach both routes, and reducing the score when another defender offers nearby geometric help.
+
+## The football insight
+
+In **7,578 eligible plays from 122 games**, zone plays showed a higher mean DDT Rate than man plays (**23.8% vs 16.2%**), a descriptive pattern that coaches can investigate through the replay and its low-DDT and dense zero-DDT controls. A broadcaster can use the same replay to show how the offensive routes develop around the defender before the throw.
+
+![Evidence snapshot with sample size, zone versus man DDT Rate, and held-out model result](snapshots/evidence_snapshot.png)
+
+**What the result does not prove:** The 2021 data do not identify each defender's actual coverage assignment, and adding DDT to a conventional-geometry completion model produced only a **0.00032** held-out log-loss improvement with a 95% interval crossing zero. DDT is a transparent **film-review prompt for potential coverage stress**, not proof of a coverage bust, a causal route effect, or better completion prediction.
+
+## Explore the submission
+
+| Replay and output | Method and code |
+| :--- | :--- |
+| [Live replay](https://advaitnaresh.github.io/the-impossible-choice/) · [Self-contained HTML](outputs/featured_play_replay.html) · [Conflict timeline](outputs/featured_play_timeline.html) | [Metric assumptions](METRIC.md) · [Analysis](analysis.py) · [Interactive app](app.py) |
+| [Finding](outputs/finding.md) · [Play-level results](outputs/ddt_play_results.csv) · [Held-out comparison](outputs/baseline_comparison.csv) | [Reproduce and inspect files](RUN.md) · [Metric implementation](metrics.py) · [Tests](tests/test_metrics.py) |
+
+<details>
+<summary><strong>Quick start with the provided tracking data</strong></summary>
 
 ```bash
 export BDB_DATA_DIR=/path/to/nfl-big-data-bowl-regional-event-data/data
@@ -16,3 +43,7 @@ python3 -m pip install -r requirements.txt
 python3 analysis.py --max-games 4 --download-pbp --force
 streamlit run app.py
 ```
+
+See [RUN.md](RUN.md) for the full 122-game reproduction path and data source.
+
+</details>
