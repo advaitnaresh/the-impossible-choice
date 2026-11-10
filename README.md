@@ -8,7 +8,7 @@
 
 | Explore | Verify | Reproduce |
 | :--- | :--- | :--- |
-| [Actual-play replay](outputs/featured_play_replay.html) · [Conflict timeline](outputs/featured_play_timeline.html) | [Finding](outputs/finding.md) · [Metric definition](METRIC.md) · [Results](outputs/baseline_comparison.csv) | [Setup and run](RUN.md) · [Analysis code](analysis.py) · [Interactive app](app.py) |
+| [Live actual-play replay](https://advaitnaresh.github.io/the-impossible-choice/) · [Replay source](outputs/featured_play_replay.html) · [Conflict timeline](outputs/featured_play_timeline.html) | [Finding](outputs/finding.md) · [Metric definition](METRIC.md) · [Results](outputs/baseline_comparison.csv) | [Setup and run](RUN.md) · [Analysis code](analysis.py) · [Interactive app](app.py) |
 
 ```bash
 export BDB_DATA_DIR=/path/to/nfl-big-data-bowl-regional-event-data/data
