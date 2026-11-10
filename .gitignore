@@ -6,3 +6,5 @@ outputs/source_cache/
 *.pyc
 .DS_Store
 SUBMISSION_NOTES.md
+.sf/
+.env
