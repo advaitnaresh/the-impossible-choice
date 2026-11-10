@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.venv/
+outputs/cache/
+outputs/source_cache/
+*.pyc
+.DS_Store
+SUBMISSION_NOTES.md

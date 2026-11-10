@@ -1,0 +1,4 @@
+model,trainPlays,testPlays,trainGames,testGames,logLoss,brierScore,auc,vsB1LogLossImprovement,vsB1LogLossImprovementCiLow,vsB1LogLossImprovementCiHigh,interpretation
+B0 situation,5529,1499,97,25,0.6265009448338358,0.21706125822605288,0.6397008844089137,,,,
+B1 situation + conventional geometry,5529,1499,97,25,0.5812849885697796,0.1977735386508055,0.7203259568223072,,,,
+B2 B1 + DDT,5529,1499,97,25,0.5809613669228099,0.19767743557309655,0.7205345073958213,0.0003236216469697517,-0.000552820581744963,0.0010568371558841714,Positive improvement favors B2; a confidence interval crossing zero is inconclusive.
