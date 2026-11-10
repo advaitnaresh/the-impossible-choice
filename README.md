@@ -1,6 +1,6 @@
 # 🏈 The Impossible Choice
 
-**Can two routes make one defender choose?** We follow actual WR, TE, and RB routes before a throw and estimate when two diverging receivers draw the same defender into a choice with limited nearby help. We call the total time in that geometry **Defensive Dilemma Time (DDT)**. In our 2021 sample, the mean per-play DDT Rate was **23.8% for zone** versus **16.2% for man**, a descriptive pattern coaches can investigate play by play.
+**Can two routes make one defender choose?** We follow actual WR, TE, and RB routes before a throw and estimate when two diverging receivers draw the same defender into a choice with limited nearby help. We call the total time in that geometry **Defensive Dilemma Time (DDT)**. In our 2021 sample, the mean per-play DDT Rate was **23.8% for zone** versus **16.2% for man**, a descriptive pattern coaches can investigate play by play. Because modeled reach is not a verified coverage assignment, coaches should use the flags to select film for review rather than label a coverage mistake.
 
 ![Animated real NFL tracking play showing two route runners, one defender, and the DDT timeline](snapshots/play_replay.gif)
 
